@@ -12,6 +12,7 @@
   background-color: var(--menu-bg-color);
   color: var(--menu-text-color);
   letter-spacing: 2px;
+  user-select: none;
 }
 .menu__item {
   width: 40px;
@@ -51,8 +52,8 @@
 }
 
 .menu__icon {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
 }
 .menu--open .menu__icon {
     margin-right: 10px;

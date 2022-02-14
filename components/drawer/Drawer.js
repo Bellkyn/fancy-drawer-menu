@@ -7,10 +7,10 @@ export default ({ children }) => {
   const [isOpen, setOpen] = useState(false);
   const menuVariants = {
     open: {
-      width: "200px",
+      width: "225px",
     },
     closed: {
-      width: "50px",
+      width: "75px",
     },
   };
 

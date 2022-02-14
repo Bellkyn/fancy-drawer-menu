@@ -30,7 +30,7 @@ export default ({ to, icon, children, isMenuOpen }) => {
         className={styles.menu__item}
       >
         <div className={styles.menu__icon}>
-          <Icon size='35' />
+          <Icon size='100%' />
         </div>
         {isMenuOpen && children}
       </motion.div>

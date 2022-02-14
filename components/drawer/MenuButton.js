@@ -26,7 +26,7 @@ const MenuButton = ({isMenuOpen,handler}) => {
       onClick={handler}
     >
       <div className={styles.menu__icon}>
-        {isMenuOpen ? <IoCloseSharp size='35' /> : <IoMenuSharp size='35' />}
+        {isMenuOpen ? <IoCloseSharp size='100%' /> : <IoMenuSharp size='100%' />}
       </div>
       {isMenuOpen && <p>Закрыть</p>}
     </motion.div>
