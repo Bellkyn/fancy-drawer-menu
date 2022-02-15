@@ -16,13 +16,14 @@ const MenuButton = ({ isMenuOpen, handler }) => {
   };
   return (
     <motion.div
+      layout
       whileHover='hover'
       whileTap='tap'
       variants={itemVariants}
       className={styles.menu__item}
       onClick={handler}
     >
-      <motion.div>
+      <motion.div layout>
         {isMenuOpen ? (
           <IoCloseSharp size='100%' className={styles.menu__icon} />
         ) : (
