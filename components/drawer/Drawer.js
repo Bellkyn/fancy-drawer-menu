@@ -38,6 +38,7 @@ const Drawer = ({ children }) => {
       <motion.div
         layout
         className={className}
+        initial='closed'
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
       >
