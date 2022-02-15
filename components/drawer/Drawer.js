@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 import React, { useState } from "react";
 import styles from "./Drawer.module.css";
 import MenuButton from "./MenuButton";
@@ -8,9 +8,13 @@ export default ({ children }) => {
   const menuVariants = {
     open: {
       width: "225px",
+      height: "100%",
+      transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
     },
     closed: {
       width: "75px",
+      height: "100%",
+      transition: { type: "tween", duration: 0.25, when: "afterChildren" },
     },
   };
 
@@ -32,14 +36,17 @@ export default ({ children }) => {
   return (
     <>
       <motion.div
+        layout
         className={className}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
       >
-        <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
-        <div className={styles.menu__white__line} />
+        <LayoutGroup>
+          <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
+          <div className={styles.menu__white__line} />
 
-        {childrenWithProps}
+          {childrenWithProps}
+        </LayoutGroup>
       </motion.div>
     </>
   );

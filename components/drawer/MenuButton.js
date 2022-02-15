@@ -1,34 +1,36 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { IoMenuSharp, IoCloseSharp } from "react-icons/io5";
 import styles from "./Drawer.module.css";
 
-const MenuButton = ({isMenuOpen,handler}) => {
-  const [isHovered, setHovered] = useState(false);
-
-  const itemsVariants = {
-    default: {
-      borderRadius: 5,
+const MenuButton = ({ isMenuOpen, handler }) => {
+  const itemVariants = {
+    tap: {
+      scale: 1,
+      transition: { type: "spring", stiffness: 150 },
     },
     hover: {
-      backgroundColor: "var(--menu-gradient)",
+      scale: 1.1,
+      backgroundColor: "var(--menu-hover)",
       borderRadius: 15,
     },
   };
   return (
     <motion.div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      initial='default'
-      animate={isHovered ? "hover" : "default"}
-      variants={itemsVariants}
-      className={styles.menu__button}
+      whileHover='hover'
+      whileTap='tap'
+      variants={itemVariants}
+      className={styles.menu__item}
       onClick={handler}
     >
-      <div className={styles.menu__icon}>
-        {isMenuOpen ? <IoCloseSharp size='100%' /> : <IoMenuSharp size='100%' />}
-      </div>
-      {isMenuOpen && <p>Закрыть</p>}
+      <motion.div>
+        {isMenuOpen ? (
+          <IoCloseSharp size='100%' className={styles.menu__icon} />
+        ) : (
+          <IoMenuSharp size='100%' className={styles.menu__icon} />
+        )}
+      </motion.div>
+
+      {isMenuOpen && <motion.p>Закрыть</motion.p>}
     </motion.div>
   );
 };
