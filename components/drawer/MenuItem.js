@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const MenuItem = ({ to, icon, children, isMenuOpen }) => {
   const itemVariants = {
     tap: {
-      scale:  1,
+      scale: 1,
       transition: { type: "spring", stiffness: 150 },
     },
     hover: {
@@ -25,8 +25,8 @@ const MenuItem = ({ to, icon, children, isMenuOpen }) => {
         whileTap='tap'
         className={styles.menu__item}
       >
-        <motion.div>
-          <Icon size='100%' className={styles.menu__icon} />
+        <motion.div className={styles.menu__icon}>
+          <Icon size='100%' />
         </motion.div>
 
         {isMenuOpen && (
