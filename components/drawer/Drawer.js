@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./Drawer.module.css";
 import MenuButton from "./MenuButton";
 
-export default ({ children }) => {
+const Drawer = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
   const menuVariants = {
     open: {
@@ -51,3 +51,4 @@ export default ({ children }) => {
     </>
   );
 };
+export default Drawer

@@ -2,7 +2,7 @@ import styles from "./Drawer.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default ({ to, icon, children, isMenuOpen }) => {
+const MenuItem = ({ to, icon, children, isMenuOpen }) => {
   const itemVariants = {
     tap: {
       scale:  1,
@@ -42,3 +42,4 @@ export default ({ to, icon, children, isMenuOpen }) => {
     </Link>
   );
 };
+export default MenuItem;
