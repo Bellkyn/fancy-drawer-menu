@@ -32,24 +32,24 @@ const Drawer = ({ children }) => {
     }
     return child;
   });
-
+  /*eslint-disable-nextline*/
   return (
     <>
       <motion.div
         layout
-        className={className}
         initial='closed'
+        className={className}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
       >
-        <LayoutGroup>
+        
           <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
           <div className={styles.menu__white__line} />
-
+          
           {childrenWithProps}
-        </LayoutGroup>
+        
       </motion.div>
     </>
   );
 };
-export default Drawer
+export default Drawer;
