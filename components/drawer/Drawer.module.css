@@ -29,9 +29,11 @@
 
 @media (max-width: 425px) {
   .menu {
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
-    flex-direction: "row",
+    flex-direction: "row";
+    height: "50px";
   }
   .menu--close {
     padding: 0px;

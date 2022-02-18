@@ -21,7 +21,7 @@ const Drawer = ({ children }) => {
           flexDirection: "row",
           width: "100%",
           height: "50px",
-          transition: { type: "linear", duration: 0.25, when: "afterChildren" },
+          transition: { type: "tween", duration: 0.1, when: "afterChildren" },
         },
       }
     : {
@@ -37,7 +37,7 @@ const Drawer = ({ children }) => {
           top: 0,
           width: "75px",
           height:'100vh',
-          transition: { type: "linear", duration: 0.25, when: "afterChildren" },
+          transition: { type: "linear", duration: 0.1, when: "afterChildren" },
         },
       };
 
@@ -64,7 +64,7 @@ const Drawer = ({ children }) => {
     <>
       <motion.div
         layout
-        initial={false}
+        initial="default"
         className={className}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
