@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { useMedia } from "../../hooks/useMedia";
 import styles from "./Drawer.module.css";
 import MenuButton from "./MenuButton";
@@ -7,28 +7,37 @@ import MenuButton from "./MenuButton";
 const Drawer = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
   const isSmall = useMedia("(max-width: 425px)");
-  console.log(isSmall);
   const menuVariants = isSmall
     ? {
         open: {
-          position: "absolute",
+          position: "fixed",
           width: "100%",
-          transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
+          transition: {
+            type: "tween",
+            duration: 0.25,
+            when: "beforeChildren",
+            onTransitionEnd: {},
+          },
         },
         closed: {
-          position: "fixed",
-          width: "50px",
+          position: "sticky",
+          top: 0,
+          flexDirection: "row",
+          width: "100%",
+          height: "50px",
           transition: { type: "linear", duration: 0.25, when: "afterChildren" },
         },
       }
     : {
         open: {
-          position: "fixed",
+          position: "sticky",
           width: "220px",
+          top: 0,
           transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
         },
         closed: {
-          position: "fixed",
+          position: "sticky",
+          top: 0,
           width: "75px",
           transition: { type: "linear", duration: 0.25, when: "afterChildren" },
         },
@@ -38,13 +47,17 @@ const Drawer = ({ children }) => {
     setOpen(!isOpen);
   };
 
+  const linkHandler = () => {
+    setOpen(false);
+  };
+
   const className = `${styles.menu} ${
     isOpen ? styles["menu--open"] : styles["menu--close"]
   }`;
 
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { isMenuOpen: isOpen });
+      return React.cloneElement(child, { isMenuOpen: isOpen, clickHandler: linkHandler });
     }
     return child;
   });
@@ -59,7 +72,7 @@ const Drawer = ({ children }) => {
         animate={isOpen ? "open" : "closed"}
       >
         <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
-        <div className={styles.menu__white__line} />
+        {isSmall && isOpen && <div className={styles.menu__white__line} />}
 
         {childrenWithProps}
       </motion.div>
