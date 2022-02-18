@@ -10,18 +10,14 @@ const Drawer = ({ children }) => {
   const menuVariants = isSmall
     ? {
         open: {
-          position: "fixed",
           width: "100%",
           transition: {
             type: "tween",
             duration: 0.25,
             when: "beforeChildren",
-            onTransitionEnd: {},
           },
         },
         closed: {
-          position: "sticky",
-          top: 0,
           flexDirection: "row",
           width: "100%",
           height: "50px",
@@ -32,6 +28,7 @@ const Drawer = ({ children }) => {
         open: {
           position: "sticky",
           width: "220px",
+          height:'100vh',
           top: 0,
           transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
         },
@@ -39,6 +36,7 @@ const Drawer = ({ children }) => {
           position: "sticky",
           top: 0,
           width: "75px",
+          height:'100vh',
           transition: { type: "linear", duration: 0.25, when: "afterChildren" },
         },
       };
@@ -66,13 +64,13 @@ const Drawer = ({ children }) => {
     <>
       <motion.div
         layout
-        initial='closed'
+        initial={false}
         className={className}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
       >
         <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
-        {isSmall && isOpen && <div className={styles.menu__white__line} />}
+        {(!isSmall || isOpen) && <div className={styles.menu__white__line} />}
 
         {childrenWithProps}
       </motion.div>

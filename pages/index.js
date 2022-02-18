@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque sapien vel lacinia auctor. Suspendisse cursus mi vel purus rhoncus gravida. In tortor dui, pharetra sit amet hendrerit vitae, congue non ex. Etiam sodales urna eros, et interdum nunc auctor vitae. Aliquam porttitor maximus velit et dictum. Vivamus in finibus metus. Aliquam sit amet leo a nulla pellentesque dignissim eu ut enim. Aliquam nec sollicitudin nunc. Fusce id pretium leo, ac hendrerit felis.
+    <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque sapien vel lacinia auctor. Suspendisse cursus mi vel purus rhoncus gravida. In tortor dui, pharetra sit amet hendrerit vitae, congue non ex. Etiam sodales urna eros, et interdum nunc auctor vitae. Aliquam porttitor maximus velit et dictum. Vivamus in finibus metus. Aliquam sit amet leo a nulla pellentesque dignissim eu ut enim. Aliquam nec sollicitudin nunc. Fusce id pretium leo, ac hendrerit felis.
 
     Curabitur sodales ipsum vitae bibendum varius. Aenean fringilla aliquet justo quis eleifend. Sed at velit a nisi faucibus posuere a at lectus. Ut sit amet dui non sapien imperdiet rhoncus. Aenean mi dolor, tempus ut luctus et, cursus non tellus. Fusce volutpat tellus diam, ac commodo est ultricies sed. Duis cursus mattis erat, ac volutpat magna ultricies id. Nam nisl sem, molestie suscipit bibendum ut, pulvinar in diam. Phasellus ac iaculis risus, ut euismod nisl.
     
@@ -22,6 +22,7 @@ export default function Home() {
     
     Morbi facilisis eget tortor vitae maximus. Sed sodales lorem a viverra sodales. Aliquam accumsan diam ut porta ultricies. Sed turpis elit, commodo eget ullamcorper quis, pretium eget lectus. Nam pellentesque ipsum et consequat pellentesque. Proin fringilla elementum dictum. Aliquam tincidunt lacus nunc, in tincidunt velit porta eget. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In efficitur diam vitae venenatis tempus. Nam bibendum pulvinar mi, a dapibus ante luctus vel.
     
-    Nam id ligula ultrices, efficitur nulla a, placerat augue. Nam venenatis libero nisi, vitae cursus nibh tincidunt sit amet. Integer at purus ligula. Etiam a leo eget felis viverra dapibus quis et dolor. Duis tempus pretium urna aliquet condimentum. Nunc vestibulum enim id dictum dapibus. Cras sagittis ultricies faucibus. Sed laoreet lacus in dui aliquet, quis vulputate ligula dictum. Praesent a auctor massa. Morbi eget ante urna.</div>
+    Nam id ligula ultrices, efficitur nulla a, placerat augue. Nam venenatis libero nisi, vitae cursus nibh tincidunt sit amet. Integer at purus ligula. Etiam a leo eget felis viverra dapibus quis et dolor. Duis tempus pretium urna aliquet condimentum. Nunc vestibulum enim id dictum dapibus. Cras sagittis ultricies faucibus. Sed laoreet lacus in dui aliquet, quis vulputate ligula dictum. Praesent a auctor massa. Morbi eget ante urna.</p></div>
   )
+  
 }

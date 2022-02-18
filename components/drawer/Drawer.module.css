@@ -27,7 +27,12 @@
   justify-content: start;
 }
 
-@media (width <= 425px) {
+@media (max-width: 425px) {
+  .menu {
+    position: fixed;
+    width: 100%;
+    flex-direction: "row",
+  }
   .menu--close {
     padding: 0px;
   }
