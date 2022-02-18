@@ -25,8 +25,7 @@ const MenuButton = ({ isMenuOpen, handler }) => {
       <motion.div className={styles.menu__icon}>
         {isMenuOpen ? <IoCloseSharp size='100%' /> : <IoMenuSharp size='100%' />}
       </motion.div>
-
-      {isMenuOpen && <motion.p>Закрыть</motion.p>}
+      {isMenuOpen && <motion.p exit={{ opacity: 0 }}>Закрыть</motion.p>}
     </motion.div>
   );
 };

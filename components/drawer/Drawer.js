@@ -1,22 +1,38 @@
-import { LayoutGroup, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { useMedia } from "../../hooks/useMedia";
 import styles from "./Drawer.module.css";
 import MenuButton from "./MenuButton";
 
 const Drawer = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
-  const menuVariants = {
-    open: {
-      width: "225px",
-      height: "100%",
-      transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
-    },
-    closed: {
-      width: "75px",
-      height: "100%",
-      transition: { type: "tween", duration: 0.25, when: "afterChildren" },
-    },
-  };
+  const isSmall = useMedia("(max-width: 425px)");
+  console.log(isSmall);
+  const menuVariants = isSmall
+    ? {
+        open: {
+          position: "absolute",
+          width: "100%",
+          transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
+        },
+        closed: {
+          position: "fixed",
+          width: "50px",
+          transition: { type: "linear", duration: 0.25, when: "afterChildren" },
+        },
+      }
+    : {
+        open: {
+          position: "fixed",
+          width: "220px",
+          transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
+        },
+        closed: {
+          position: "fixed",
+          width: "75px",
+          transition: { type: "linear", duration: 0.25, when: "afterChildren" },
+        },
+      };
 
   const buttonHandler = () => {
     setOpen(!isOpen);
@@ -32,7 +48,7 @@ const Drawer = ({ children }) => {
     }
     return child;
   });
-  /*eslint-disable-nextline*/
+
   return (
     <>
       <motion.div
@@ -42,12 +58,10 @@ const Drawer = ({ children }) => {
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
       >
-        
-          <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
-          <div className={styles.menu__white__line} />
-          
-          {childrenWithProps}
-        
+        <MenuButton handler={buttonHandler} isMenuOpen={isOpen} />
+        <div className={styles.menu__white__line} />
+
+        {childrenWithProps}
       </motion.div>
     </>
   );

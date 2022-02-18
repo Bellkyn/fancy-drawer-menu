@@ -1,6 +1,6 @@
 import styles from "./Drawer.module.css";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const MenuItem = ({ to, icon, children, isMenuOpen }) => {
   const itemVariants = {
@@ -19,26 +19,26 @@ const MenuItem = ({ to, icon, children, isMenuOpen }) => {
 
   return (
     <Link href={to} passHref>
-      <motion.div
-        variants={itemVariants}
-        whileHover='hover'
-        whileTap='tap'
-        className={styles.menu__item}
-      >
-        <motion.div className={styles.menu__icon}>
-          <Icon size='100%' />
-        </motion.div>
+        <motion.div
+          variants={itemVariants}
+          whileHover='hover'
+          whileTap='tap'
+          className={styles.menu__item}
+        >
+          <motion.div animate={false} layout className={styles.menu__icon}>
+            <Icon size='100%' />
+          </motion.div>
 
-        {isMenuOpen && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            {children}
-          </motion.p>
-        )}
-      </motion.div>
+          {isMenuOpen && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              {children}
+            </motion.p>
+          )}
+        </motion.div>
     </Link>
   );
 };
