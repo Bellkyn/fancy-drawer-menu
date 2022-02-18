@@ -13,12 +13,11 @@ const Drawer = ({ children }) => {
           width: "100%",
           transition: {
             type: "tween",
-            duration: 0.25,
+            duration: 0.1,
             when: "beforeChildren",
           },
         },
         closed: {
-          flexDirection: "row",
           width: "100%",
           height: "50px",
           transition: { type: "tween", duration: 0.1, when: "afterChildren" },
@@ -26,18 +25,14 @@ const Drawer = ({ children }) => {
       }
     : {
         open: {
-          position: "sticky",
           width: "220px",
           height:'100vh',
-          top: 0,
           transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
         },
         closed: {
-          position: "sticky",
-          top: 0,
           width: "75px",
           height:'100vh',
-          transition: { type: "linear", duration: 0.1, when: "afterChildren" },
+          transition: { type: "tween", duration: 0.1, when: "afterChildren" },
         },
       };
 
@@ -63,8 +58,7 @@ const Drawer = ({ children }) => {
   return (
     <>
       <motion.div
-        layout
-        initial="default"
+        initial={false}
         className={className}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
