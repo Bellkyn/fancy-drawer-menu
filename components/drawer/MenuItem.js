@@ -26,18 +26,11 @@ const MenuItem = ({ to, icon, children, isMenuOpen, clickHandler }) => {
         className={styles.menu__item}
         onClick={clickHandler}
       >
-        <div animate={false} layout className={styles.menu__icon}>
+        <div className={styles.menu__icon}>
           <Icon size='100%' />
         </div>
 
-        {isMenuOpen && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            {children}
-          </motion.p>
-        )}
+        {isMenuOpen && children}
       </motion.div>
     </Link>
   );

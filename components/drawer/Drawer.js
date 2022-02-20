@@ -11,11 +11,8 @@ const Drawer = ({ children }) => {
     ? {
         open: {
           width: "100%",
-          transition: {
-            type: "tween",
-            duration: 0.1,
-            when: "beforeChildren",
-          },
+          height: "100vh",
+          transition: { type: "tween", duration: 0.1, when: "beforeChildren" },
         },
         closed: {
           width: "100%",
@@ -26,12 +23,12 @@ const Drawer = ({ children }) => {
     : {
         open: {
           width: "220px",
-          height:'100vh',
+          height: "100vh",
           transition: { type: "tween", duration: 0.25, when: "beforeChildren" },
         },
         closed: {
           width: "75px",
-          height:'100vh',
+          height: "100vh",
           transition: { type: "tween", duration: 0.1, when: "afterChildren" },
         },
       };
@@ -58,7 +55,6 @@ const Drawer = ({ children }) => {
   return (
     <>
       <motion.div
-        initial={false}
         className={className}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
